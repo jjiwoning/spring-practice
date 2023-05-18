@@ -1,5 +1,6 @@
 package com.example.springpractice.auth;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+
+import static com.example.springpractice.auth.UserConst.LOGIN_TOKEN;
 
 @Component
 public class JwtUtil {
@@ -46,6 +49,7 @@ public class JwtUtil {
 
     public boolean checkToken(String jwt) {
         try {
+            // 여기서 토큰 유효 기간을 확인하고 만료되어있다면 알아서 예외를 던져줌
             Claims claims = Jwts.parserBuilder()
                     .setSigningKey(this.secretKey)
                     .build()
@@ -55,5 +59,16 @@ public class JwtUtil {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public UserInfo parseToken(String jwt) {
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(this.secretKey)
+                .build()
+                .parseClaimsJws(jwt)
+                .getBody();
+
+        return new ObjectMapper()
+                .convertValue(claims.get(LOGIN_TOKEN), UserInfo.class);
     }
 }
