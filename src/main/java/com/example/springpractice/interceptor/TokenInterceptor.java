@@ -6,9 +6,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
+
+import java.util.Objects;
 
 @Slf4j
 @Component
@@ -22,6 +25,11 @@ public class TokenInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String accessToken = request.getHeader(JwtUtil.ACCESS_TOKEN_NAME);
+
+        if (isPreflightRequest(request)) {
+            // cors 검증 요청인 경우 인터셉터 바로 통과하게 설정해줘야 cors 이슈가 발생하지 않는다.
+            return true;
+        }
 
         // accessToken이 유효한 경우
         if (jwtUtil.checkToken(accessToken)) {
@@ -41,5 +49,25 @@ public class TokenInterceptor implements HandlerInterceptor {
         // 모든 경우가 실패 -> 401 보내기
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         return false;
+    }
+
+    private boolean isPreflightRequest(HttpServletRequest request) {
+        return isOptions(request) && hasHeaders(request) && hasMethod(request) && hasOrigin(request);
+    }
+
+    private boolean isOptions(HttpServletRequest request) {
+        return request.getMethod().equalsIgnoreCase(HttpMethod.OPTIONS.toString());
+    }
+
+    private boolean hasHeaders(HttpServletRequest request) {
+        return Objects.nonNull(request.getHeader("Access-Control-Request-Headers"));
+    }
+
+    private boolean hasMethod(HttpServletRequest request) {
+        return Objects.nonNull(request.getHeader("Access-Control-Request-Method"));
+    }
+
+    private boolean hasOrigin(HttpServletRequest request) {
+        return Objects.nonNull(request.getHeader("Origin"));
     }
 }
