@@ -1,7 +1,7 @@
 package com.example.springpractice.interceptor;
 
 import com.example.springpractice.auth.JwtUtil;
-import com.example.springpractice.service.UserService;
+import com.example.springpractice.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     private final JwtUtil jwtUtil;
 
-    private final UserService userService;
+    private final MemberService memberService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
