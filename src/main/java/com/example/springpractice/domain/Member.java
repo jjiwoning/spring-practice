@@ -1,10 +1,7 @@
 package com.example.springpractice.domain;
 
 import com.example.springpractice.domain.vo.Address;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +19,9 @@ public class Member extends BaseTimeEntity {
     private String nickname;
     @Embedded
     private Address address;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     @Builder
     public Member(Long id, String name, String nickname, Address address) {
