@@ -24,10 +24,11 @@ public class Member extends BaseTimeEntity {
     private Team team;
 
     @Builder
-    public Member(Long id, String name, String nickname, Address address) {
+    public Member(Long id, String name, String nickname, Address address, Team team) {
         this.id = id;
         this.name = name;
         this.nickname = nickname;
         this.address = address;
+        this.team = team;
     }
 }

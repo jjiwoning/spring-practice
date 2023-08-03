@@ -18,7 +18,7 @@ public class Team {
     private Long id;
     private String name;
     @Embedded
-    private Members members;
+    private Members members = new Members();
 
     @Builder
     public Team(Long id, String name) {
@@ -32,5 +32,9 @@ public class Team {
 
     public String getName() {
         return name;
+    }
+
+    public Members getMembers() {
+        return members;
     }
 }
