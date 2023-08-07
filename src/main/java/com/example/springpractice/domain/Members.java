@@ -1,14 +1,15 @@
-package com.example.springpractice.domain.vo;
+package com.example.springpractice.domain;
 
-import com.example.springpractice.domain.Member;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.OneToMany;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Embeddable
+@Getter
 public class Members {
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
@@ -16,6 +17,10 @@ public class Members {
 
     public void addMember(Member member) {
         members.add(member);
+    }
+
+    public int getMembersCount() {
+        return members.size();
     }
 
 }
