@@ -14,15 +14,21 @@ import static com.example.springpractice.auth.UserConst.LOGIN_TOKEN;
 
 @Component
 public class JwtUtil {
-
-    // 원시적인 문자열을 키 인수로 사용하지 않고 더 안전하게 사용하는 방법
-    private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-
     public static final String ACCESS_TOKEN_NAME = "access-token";
     public static final String REFRESH_TOKEN_NAME = "refresh-token";
 
     private static final int ACCESS_TOKEN_EXPIRE_MIN = 1;
     private static final int REFRESH_TOKEN_EXPIRE_MIN = 2;
+
+    // 원시적인 문자열을 키 인수로 사용하지 않고 더 안전하게 사용하는 방법
+    private final Key secretKey;
+
+    private final ObjectMapper objectMapper;
+
+    public JwtUtil(ObjectMapper objectMapper) {
+        this.secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        this.objectMapper = objectMapper;
+    }
 
     public <T> String create(String key, T data, String subject, long expire) {
         Claims claims = Jwts.claims()
@@ -68,7 +74,6 @@ public class JwtUtil {
                 .parseClaimsJws(jwt)
                 .getBody();
 
-        return new ObjectMapper()
-                .convertValue(claims.get(LOGIN_TOKEN), UserInfo.class);
+        return objectMapper.convertValue(claims.get(LOGIN_TOKEN), UserInfo.class);
     }
 }
