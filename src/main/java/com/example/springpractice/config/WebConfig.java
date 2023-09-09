@@ -1,18 +1,23 @@
 package com.example.springpractice.config;
 
+import com.example.springpractice.auth.LoginUserResolver;
 import com.example.springpractice.interceptor.TokenInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
 
     private final TokenInterceptor tokenInterceptor;
+    private final LoginUserResolver loginUserResolver;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -39,5 +44,10 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600);
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(loginUserResolver);
     }
 }
