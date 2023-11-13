@@ -8,6 +8,8 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.springpractice.event.Events;
+
 @Embeddable
 @Getter
 public class Members {
@@ -17,6 +19,7 @@ public class Members {
 
     public void addMember(Member member) {
         members.add(member);
+        Events.raise(new MemberAddedEvent(member.getId()));
     }
 
     public int getMembersCount() {
