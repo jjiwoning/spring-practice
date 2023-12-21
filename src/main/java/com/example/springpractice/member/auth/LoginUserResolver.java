@@ -1,4 +1,4 @@
-package com.example.springpractice.auth;
+package com.example.springpractice.member.auth;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.MethodParameter;

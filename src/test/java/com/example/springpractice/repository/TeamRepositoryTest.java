@@ -1,7 +1,10 @@
 package com.example.springpractice.repository;
 
-import com.example.springpractice.domain.Member;
-import com.example.springpractice.domain.Team;
+import com.example.springpractice.member.domain.Member;
+import com.example.springpractice.member.domain.Team;
+import com.example.springpractice.member.repository.MemberRepository;
+import com.example.springpractice.member.repository.TeamRepository;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.junit.jupiter.api.DisplayName;

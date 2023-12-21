@@ -1,7 +1,7 @@
 package com.example.springpractice.config;
 
-import com.example.springpractice.auth.LoginUserResolver;
-import com.example.springpractice.interceptor.TokenInterceptor;
+import com.example.springpractice.member.auth.LoginUserResolver;
+import com.example.springpractice.member.interceptor.TokenInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

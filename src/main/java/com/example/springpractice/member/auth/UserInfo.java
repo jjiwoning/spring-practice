@@ -1,4 +1,4 @@
-package com.example.springpractice.auth;
+package com.example.springpractice.member.auth;
 
 public class UserInfo {
     private Long id;

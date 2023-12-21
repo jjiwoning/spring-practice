@@ -1,6 +1,7 @@
-package com.example.springpractice.domain;
+package com.example.springpractice.member.domain;
 
-import com.example.springpractice.domain.vo.Address;
+import com.example.springpractice.member.domain.vo.Address;
+
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.example.springpractice.domain;
+package com.example.springpractice.member.domain;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.springpractice.event.Events;
+import com.example.springpractice.member.event.Events;
 
 @Embeddable
 @Getter

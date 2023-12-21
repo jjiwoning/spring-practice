@@ -1,6 +1,6 @@
-package com.example.springpractice.controller;
+package com.example.springpractice.member.controller;
 
-import com.example.springpractice.service.MemberService;
+import com.example.springpractice.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.example.springpractice.domain;
+package com.example.springpractice.member.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

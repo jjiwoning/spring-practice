@@ -1,9 +1,9 @@
-package com.example.springpractice.service;
+package com.example.springpractice.member.service;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import com.example.springpractice.domain.MemberAddedEvent;
+import com.example.springpractice.member.domain.MemberAddedEvent;
 
 @Service
 public class MemberAddedEventHandler {

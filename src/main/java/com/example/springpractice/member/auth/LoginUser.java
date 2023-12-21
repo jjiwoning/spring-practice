@@ -1,4 +1,4 @@
-package com.example.springpractice.auth;
+package com.example.springpractice.member.auth;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package com.example.springpractice.event;
+package com.example.springpractice.member.event;
 
 import org.springframework.context.ApplicationEventPublisher;
 

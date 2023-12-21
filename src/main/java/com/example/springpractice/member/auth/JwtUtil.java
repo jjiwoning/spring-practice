@@ -1,4 +1,4 @@
-package com.example.springpractice.auth;
+package com.example.springpractice.member.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
-
-import static com.example.springpractice.auth.UserConst.LOGIN_TOKEN;
 
 @Component
 public class JwtUtil {
@@ -74,6 +72,6 @@ public class JwtUtil {
                 .parseClaimsJws(jwt)
                 .getBody();
 
-        return objectMapper.convertValue(claims.get(LOGIN_TOKEN), UserInfo.class);
+        return objectMapper.convertValue(claims.get(UserConst.LOGIN_TOKEN), UserInfo.class);
     }
 }

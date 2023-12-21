@@ -1,4 +1,4 @@
-package com.example.springpractice.domain.vo;
+package com.example.springpractice.member.domain.vo;
 
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;

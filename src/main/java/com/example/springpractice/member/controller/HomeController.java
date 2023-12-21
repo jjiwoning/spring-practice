@@ -1,4 +1,4 @@
-package com.example.springpractice.controller;
+package com.example.springpractice.member.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

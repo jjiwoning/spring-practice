@@ -1,6 +1,6 @@
-package com.example.springpractice.repository;
+package com.example.springpractice.member.repository;
 
-import com.example.springpractice.domain.Team;
+import com.example.springpractice.member.domain.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TeamRepository extends JpaRepository<Team, Long> {

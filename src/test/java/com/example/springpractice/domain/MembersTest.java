@@ -4,6 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.springpractice.member.domain.Member;
+import com.example.springpractice.member.domain.Members;
+
 @SpringBootTest
 @DisplayName("Members 테스트")
 class MembersTest {

@@ -1,7 +1,7 @@
-package com.example.springpractice.interceptor;
+package com.example.springpractice.member.interceptor;
 
-import com.example.springpractice.auth.JwtUtil;
-import com.example.springpractice.service.MemberService;
+import com.example.springpractice.member.auth.JwtUtil;
+import com.example.springpractice.member.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
