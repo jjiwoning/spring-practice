@@ -1,6 +1,4 @@
-package com.example.springpractice.buckpal.domain;
-
-import static com.example.springpractice.buckpal.domain.Account.AccountId;
+package com.example.springpractice.buckpal.account.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -41,7 +39,7 @@ public class ActivityWindow {
 				.getTimestamp();
 	}
 
-	public Money calculateBalance(AccountId accountId) {
+	public Money calculateBalance(Account.AccountId accountId) {
 		Money depositBalance = activities.stream()
 				.filter(a -> a.getTargetAccountId().equals(accountId))
 				.map(Activity::getMoney)

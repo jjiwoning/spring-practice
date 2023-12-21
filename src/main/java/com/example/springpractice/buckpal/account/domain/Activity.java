@@ -1,4 +1,4 @@
-package com.example.springpractice.buckpal.domain;
+package com.example.springpractice.buckpal.account.domain;
 
 import java.time.LocalDateTime;
 
