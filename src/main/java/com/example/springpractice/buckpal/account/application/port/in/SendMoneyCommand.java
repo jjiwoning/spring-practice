@@ -21,7 +21,7 @@ public class SendMoneyCommand extends SelfValidating<SendMoneyCommand> {
     @NotNull
     private final Money money;
 
-    public SendMoneyCommand(
+    private SendMoneyCommand(
             final Account.AccountId sourceAccountId,
             final Account.AccountId targetAccountId,
             final Money money
@@ -30,5 +30,16 @@ public class SendMoneyCommand extends SelfValidating<SendMoneyCommand> {
         this.targetAccountId = targetAccountId;
         this.money = money;
         this.validateSelf();
+    }
+
+    public static SendMoneyCommand of(
+        final Long sourceAccountId,
+        final Long targetAccountId,
+        final Long money
+    ) {
+        return new SendMoneyCommand(
+            new Account.AccountId(sourceAccountId),
+            new Account.AccountId(targetAccountId),
+            Money.of(money));
     }
 }
