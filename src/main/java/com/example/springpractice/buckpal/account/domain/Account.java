@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Getter
 public class Account {
 
 	private final AccountId id;
