@@ -62,9 +62,9 @@ public class Account {
 	}
 
 	private boolean mayWithdraw(final Money money) {
-		return Money.add(
+		return Money.subtract(
 				this.calculateBalance(),
-				money.negate())
+				money)
 			.isPositiveOrZero();
 	}
 

@@ -50,7 +50,7 @@ public class ActivityWindow {
 				.map(Activity::getMoney)
 				.reduce(Money.ZERO, Money::add);
 
-		return Money.add(depositBalance, withdrawalBalance.negate());
+		return Money.subtract(depositBalance, withdrawalBalance);
 	}
 
 	public List<Activity> getActivities() {
