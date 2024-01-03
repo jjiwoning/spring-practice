@@ -2,10 +2,12 @@ package com.example.springpractice.buckpal.account.domain;
 
 import java.math.BigInteger;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 
 @Getter
+@EqualsAndHashCode
 public class Money {
 
 	public static Money ZERO = Money.of(0L);

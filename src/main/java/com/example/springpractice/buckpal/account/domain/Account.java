@@ -5,10 +5,12 @@ import java.util.Optional;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
+@EqualsAndHashCode
 public class Account {
 
 	private final AccountId id;
@@ -84,6 +86,7 @@ public class Account {
 
 	@AllArgsConstructor
 	@Getter
+	@EqualsAndHashCode
 	public static class AccountId {
 		private Long value;
 	}

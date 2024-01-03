@@ -3,12 +3,14 @@ package com.example.springpractice.buckpal.account.domain;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
+@EqualsAndHashCode
 public class Activity {
 
 	private ActivityId id;
