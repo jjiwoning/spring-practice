@@ -1,17 +1,18 @@
 package com.example.springpractice.member.interceptor;
 
-import com.example.springpractice.member.auth.JwtUtil;
-import com.example.springpractice.member.service.MemberService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Objects;
+
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import java.util.Objects;
+import com.example.springpractice.member.auth.JwtUtil;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
@@ -19,8 +20,6 @@ import java.util.Objects;
 public class TokenInterceptor implements HandlerInterceptor {
 
     private final JwtUtil jwtUtil;
-
-    private final MemberService memberService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

@@ -1,8 +1,7 @@
 package com.example.springpractice.config;
 
-import com.example.springpractice.member.auth.LoginUserResolver;
-import com.example.springpractice.member.interceptor.TokenInterceptor;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -10,7 +9,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.List;
+import com.example.springpractice.member.auth.LoginUserResolver;
+import com.example.springpractice.member.interceptor.TokenInterceptor;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
@@ -25,7 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addInterceptor(tokenInterceptor)
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/"); // 여기에 제외할 path 지정
+                .excludePathPatterns("/accounts/**"); // 여기에 제외할 path 지정
     }
 
     @Override
