@@ -1,6 +1,8 @@
 package com.example.kotlinspringexample.api
 
 import org.assertj.core.api.Assertions
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,6 +16,11 @@ class HelloControllerTest(
         @Autowired val restTemplate: TestRestTemplate
 ) {
 
+    @BeforeAll
+    fun setup() {
+        println(">> Setup")
+    }
+
     @Test
     @DisplayName("HelloController 테스트")
     fun test() {
@@ -21,6 +28,11 @@ class HelloControllerTest(
 
         Assertions.assertThat(result.statusCode).isEqualTo(HttpStatus.OK)
         Assertions.assertThat(result.body).isEqualTo("hello!")
+    }
+
+    @AfterAll
+    fun teardown() {
+        println(">> Tear down")
     }
 
 }
