@@ -12,6 +12,7 @@ class Article(
     var headline: String,
     var content: String,
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
     var author: User,
     var slug: String = title.toSlug(),
     var addedAt: LocalDateTime = LocalDateTime.now()
