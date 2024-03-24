@@ -27,11 +27,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
 
+    implementation("org.testcontainers:localstack:1.11.3")
+
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.batch:spring-batch-test")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:localstack")
+    testImplementation("org.testcontainers:junit-jupiter:1.11.3")
+    testImplementation("cloud.localstack:localstack-utils:0.2.20")
 }
 
 tasks.withType<KotlinCompile> {
