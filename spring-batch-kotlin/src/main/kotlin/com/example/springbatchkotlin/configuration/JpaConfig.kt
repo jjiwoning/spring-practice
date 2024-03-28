@@ -5,6 +5,6 @@ import org.springframework.data.envers.repository.support.EnversRevisionReposito
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 @Configuration
-@EnableJpaRepositories(repositoryFactoryBeanClass = EnversRevisionRepositoryFactoryBean::class)
+@EnableJpaRepositories(basePackages = ["com.example.springbatchkotlin"], repositoryFactoryBeanClass = EnversRevisionRepositoryFactoryBean::class)
 class JpaConfig {
 }
