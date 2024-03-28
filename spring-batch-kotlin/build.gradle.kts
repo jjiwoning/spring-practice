@@ -26,6 +26,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
+    implementation("org.springframework.data:spring-data-envers")
 
     implementation("org.testcontainers:localstack:1.11.3")
 
