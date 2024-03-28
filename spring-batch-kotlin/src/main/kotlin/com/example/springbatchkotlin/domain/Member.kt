@@ -1,9 +1,11 @@
 package com.example.springbatchkotlin.domain
 
 import jakarta.persistence.*
+import org.hibernate.envers.Audited
 
 @Table(name = "members")
 @Entity
+@Audited
 class Member(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
