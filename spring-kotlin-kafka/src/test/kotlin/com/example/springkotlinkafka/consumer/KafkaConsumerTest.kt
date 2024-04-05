@@ -3,7 +3,6 @@ package com.example.springkotlinkafka.consumer
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
-import org.apache.kafka.common.internals.Topic
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -15,8 +14,6 @@ import org.springframework.kafka.test.utils.KafkaTestUtils
 import org.springframework.test.context.ContextConfiguration
 import java.time.Duration
 import java.util.stream.StreamSupport
-
-
 
 @DisplayName("Kafka Consumer 학습 테스트")
 @ContextConfiguration(classes = [SpringBootApplication::class])
