@@ -14,4 +14,9 @@ class User(
     var firstname: String,
     var lastname: String,
     var description: String? = null
-)
+) {
+
+    fun updateDescription(description: String) {
+        this.description = description
+    }
+}
